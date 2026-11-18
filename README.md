@@ -1,282 +1,250 @@
-# Missing Person Identification System
+AI-Assisted Human Identification Platform
 
-**An AI-powered platform for identifying missing persons using facial landmark extraction and similarity matching.**
+An AI-powered platform for identifying missing persons using facial landmark extraction and similarity matching.
 
-[![Issues](https://img.shields.io/github/issues/M-sahoo2007/Finding-missing-person-using-AI)](https://github.com/M-sahoo2007/Finding-missing-person-using-AI/issues)
-[![Stars](https://img.shields.io/github/stars/M-sahoo2007/Finding-missing-person-using-AI?style=social)](https://github.com/M-sahoo2007/Finding-missing-person-using-AI)
-[![Streamlit](https://img.shields.io/badge/Streamlit-000000?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
-[![MediaPipe](https://img.shields.io/badge/MediaPipe-000000?style=for-the-badge&logo=mediapipe&logoColor=white)](https://mediapipe.dev/)
-[![Python](https://img.shields.io/badge/Python-000000?style=for-the-badge&logo=python&logoColor=white)](https://python.org/)
-[![SQLite](https://img.shields.io/badge/SQLite-000000?style=for-the-badge&logo=sqlite&logoColor=white)](https://sqlite.org/)
-
----
-
-## Disclaimer
-
-This project is intended for educational and demonstration purposes.
-
-Images of individuals used as sample data should be lawfully sourced and used with appropriate permission. No ownership of third-party images is claimed.
-
-Facial landmarks and matching outputs are not proof of identity. Any potential match must be independently verified by authorized personnel before action is taken.
-
-The system should not be used for real missing-person investigations without appropriate legal authorization, privacy safeguards, security controls, and human oversight.
+""Issues" (https://img.shields.io/github/issues/M-sahoo2007/Finding-missing-person-using-AI)" (https://github.com/M-sahoo2007/Finding-missing-person-using-AI/issues)
+""Stars" (https://img.shields.io/github/stars/M-sahoo2007/Finding-missing-person-using-AI?style=social)" (https://github.com/M-sahoo2007/Finding-missing-person-using-AI)
+""Streamlit" (https://img.shields.io/badge/Streamlit-000000?style=for-the-badge&logo=streamlit&logoColor=white)" (https://streamlit.io/)
+""MediaPipe" (https://img.shields.io/badge/MediaPipe-000000?style=for-the-badge&logo=mediapipe&logoColor=white)" (https://mediapipe.dev/)
+""Python" (https://img.shields.io/badge/Python-000000?style=for-the-badge&logo=python&logoColor=white)" (https://python.org/)
+""SQLite" (https://img.shields.io/badge/SQLite-000000?style=for-the-badge&logo=sqlite&logoColor=white)" (https://sqlite.org/)
 
 ---
 
-## Table of Contents
+Project Overview
 
-- The Problem
-- A Case, Start to Finish
-- How It Works
+The AI-Assisted Human Identification Platform is a computer vision-based application designed to assist in identifying missing persons through facial landmark extraction and similarity matching.
+
+The platform provides an interface for registering missing-person reports, submitting potential sightings, managing case information, and comparing facial features using machine learning techniques.
+
+It uses MediaPipe for facial landmark extraction, a K-Nearest Neighbors (KNN) algorithm for similarity comparison, and Streamlit for the application interface.
+
+Disclaimer
+
+This project is developed for educational and demonstration purposes.
+
+Facial matching results are not proof of identity. Every potential match requires independent verification by authorized personnel.
+
+The system must not be used for actual missing-person investigations without appropriate legal authorization, privacy safeguards, security controls, and human oversight.
+
+Table of Contents
+
+- Project Overview
+- Problem Statement
+- Project Workflow
+- How the System Works
 - Features
-- Getting Started
-- Configuring Login Credentials
-- Seeding Demo Data
-- Tech Stack
+- System Architecture
+- Installation and Setup
+- Login Configuration
+- Demo Data
+- Technology Stack
 - FAQ
 - Developer Information
+- Acknowledgements
 
----
-
-## The Problem
+Problem Statement
 
 Missing-person cases require timely reporting, coordination, and examination of available information.
 
-Manual photo comparison and scattered records can make it difficult to identify potential matches between missing-person reports and public sightings.
+Manual photograph comparison and scattered records can make it difficult to identify potential matches between missing-person reports and public sightings.
 
-This project explores an AI-assisted approach to organizing reports and identifying visually similar faces to support the review process.
+This project proposes an AI-assisted approach to organizing reports and identifying visually similar faces using computer vision and machine learning.
 
-The system is designed to demonstrate how computer vision and machine learning can assist with information retrieval.
+Project Workflow
 
----
+Step 1: Register a Missing-Person Case
 
-## A Case, Start to Finish
+An authorized officer logs into the application, enters the missing person's information, and uploads a photograph.
 
-### Step 1: Family files a report. Officer registers the case.
+Step 2: Facial Landmark Extraction
 
-An authorized officer opens the portal, enters the missing-person details, and uploads a photograph.
+MediaPipe detects facial landmarks and extracts the corresponding facial feature information.
 
-The application uses MediaPipe to detect facial landmarks.
+Step 3: Manage Cases
 
-### Step 2: Dashboard tracks cases.
+The dashboard displays registered cases, their statuses, and available location-based summaries.
 
-The dashboard displays registered cases, their current statuses, and available location-based summaries.
+Step 4: Submit Public Sightings
 
-### Step 3: Public submits a sighting.
+Members of the public can submit photographs through the separate public submission portal.
 
-A member of the public submits a photograph through the public submission portal.
+Step 5: AI-Assisted Matching
 
-The system extracts facial landmarks for potential comparison.
+The system uses KNN-based similarity comparison to identify potentially similar facial feature vectors.
 
-### Step 4: Admin reviews potential matches.
+Step 6: Human Verification
 
-The administrator triggers the matching process.
+Authorized administrators review potential matches and independently verify the available information.
 
-The KNN model compares available facial feature vectors and produces similarity results for human review.
+How the System Works
 
-A similarity result should never be treated as a confirmed identity without independent verification.
+1. An officer registers a missing-person case.
+2. The application processes the uploaded photograph.
+3. MediaPipe extracts facial landmarks.
+4. A public user submits a potential sighting.
+5. The system extracts facial features from the submitted image.
+6. The KNN algorithm compares available feature vectors.
+7. Potential matches are displayed for authorized human review.
 
----
+Key Features
 
-## How It Works
+Feature| Description
+Face Detection| MediaPipe Face Landmarker
+AI-Assisted Matching| KNN-based facial feature comparison
+Video Sightings| Video frame extraction using OpenCV
+Admin Dashboard| Case statistics and monitoring
+Location Map| Geographic case summaries
+Email Notifications| Optional SMTP-based alerts
+Role-Based Access| Admin and Officer roles
+Public Portal| Separate public submission interface
+Database Management| SQLite-based data storage
 
-1. An officer registers a missing-person case and uploads a photograph.
-2. MediaPipe extracts facial landmarks.
-3. A public user submits a potential sighting.
-4. The system extracts corresponding facial features.
-5. The KNN algorithm compares the available feature vectors.
-6. Potential matches are presented for authorized human review.
+System Architecture
 
----
+The application consists of the following major components:
 
-## Features
+1. Frontend: Streamlit-based user interface.
+2. Face Processing: MediaPipe facial landmark extraction.
+3. Matching Engine: KNN-based similarity comparison.
+4. Database: SQLite with SQLModel.
+5. Video Processing: OpenCV.
+6. Visualization: Folium interactive maps.
+7. Notifications: Optional SMTP integration.
 
-| Feature | Details |
-|---|---|
-| Face Detection | MediaPipe Face Landmarker |
-| AI Matching | KNN-based facial feature comparison |
-| Video Sightings | Video frame extraction using OpenCV |
-| Dashboard | Case statistics and status monitoring |
-| Location Map | Geographic case summaries |
-| Email Notifications | Optional SMTP-based alerts |
-| Role-Based Access | Admin and Officer roles |
-| Public Portal | Separate public submission interface |
+Installation and Setup
 
----
-
-## Getting Started
-
-### Prerequisites
+Prerequisites
 
 - Python
 - pip
 - Git
 - Internet connection for initial model download
 
-### Installation
+1. Clone the Repository
 
-Clone the repository:
-
-```bash
 git clone https://github.com/M-sahoo2007/Finding-missing-person-using-AI.git
-```
 
-Navigate into the project:
+2. Navigate to the Project
 
-```bash
 cd Finding-missing-person-using-AI
-```
 
-Install dependencies:
+3. Create a Virtual Environment
 
-```bash
+python -m venv venv
+
+Activate it on Windows:
+
+venv\Scripts\activate
+
+Activate it on macOS/Linux:
+
+source venv/bin/activate
+
+4. Install Dependencies
+
 pip install -r requirements.txt
-```
 
-### Run the Officer/Admin Portal
+5. Run the Admin/Officer Portal
 
-```bash
 streamlit run Home.py
-```
 
-### Run the Public Submission Portal
+6. Run the Public Submission Portal
 
-```bash
 streamlit run mobile_app.py
-```
 
-The SQLite database and face landmarker model are initialized according to the application configuration.
+Login Configuration
 
----
+User credentials are configured through "login_config.yml".
 
-## Configuring Login Credentials
+Generate a bcrypt password hash:
 
-Credentials are configured through `login_config.yml`.
-
-To generate a bcrypt password hash:
-
-```python
 import bcrypt
 
-print(
-    bcrypt.hashpw(
-        b"your_password",
-        bcrypt.gensalt()
-    ).decode()
+password = b"your_password"
+
+hashed = bcrypt.hashpw(
+    password,
+    bcrypt.gensalt()
 )
-```
 
-Edit the configuration file using the project's expected structure.
+print(hashed.decode())
 
-Example:
+Configure the login credentials using the structure expected by the application.
 
-```yaml
-credentials:
-  usernames:
-    your_username:
-      name: Your Display Name
-      email: you@example.com
-      city: Bhadrak
-      area: Odisha
-      role: Admin
-      password: '$2b$12$...'
-```
+Never commit real credentials, password hashes, or private configuration files to GitHub.
 
-### Roles
+Demo Data
 
-| Role | Permissions |
-|---|---|
-| Admin | Register, review, edit, and delete cases; initiate matching |
-| Officer | Register cases and view authorized records |
-
-**Security:** Never commit real credentials, password hashes, or private configuration files to GitHub.
-
----
-
-## Seeding Demo Data
-
-The `scripts/` directory contains utilities for preparing demonstration records.
+The "scripts/" directory contains utilities for preparing demonstration records.
 
 Download sample images:
 
-```bash
 uv run scripts/download_celebrity_images.py --dest reported
-```
 
 Or distribute images across both directories:
 
-```bash
 uv run scripts/download_celebrity_images.py --dest both
-```
 
-Run the bulk upload:
+Run bulk upload:
 
-```bash
 python scripts/bulk_upload.py
-```
 
-Only use sample images that you have permission to use. Avoid real sensitive personal information in demo records.
+Only use images that you have permission to use.
 
----
+Technology Stack
 
-## Tech Stack
+Technology| Purpose
+Python| Main programming language
+Streamlit| User interface
+MediaPipe Tasks| Facial landmark extraction
+scikit-learn| KNN similarity matching
+SQLModel| Database modelling
+SQLite| Data storage
+Folium| Interactive maps
+OpenCV| Video processing
 
-| Technology | Purpose |
-|---|---|
-| Python | Main programming language |
-| Streamlit | User interface |
-| MediaPipe Tasks | Facial landmark extraction |
-| scikit-learn KNN | Similarity matching |
-| SQLModel | Database modelling |
-| SQLite | Data storage |
-| Folium | Interactive maps |
-| OpenCV | Video processing |
+FAQ
 
----
+Q: What is the purpose of this project?
 
-## FAQ
+To demonstrate how artificial intelligence and computer vision can assist in organizing missing-person reports and identifying potentially similar faces.
 
-**Q: Can I run the application offline?**
+Q: Can the application work offline?
 
-The face landmarker model is downloaded during initial setup and cached locally. Offline operation depends on the application's configured features and dependencies.
+The face landmarker model is downloaded during initial setup and cached locally. Offline operation depends on the configured features and dependencies.
 
-**Q: How accurate is facial matching?**
+Q: How accurate is facial matching?
 
-Matching performance depends on image quality, lighting, pose, dataset composition, and model configuration. A similarity score is not a verified identity.
+Performance depends on image quality, lighting, pose, dataset composition, and model configuration. A similarity score is not a verified identity.
 
-**Q: Can I add multiple officers?**
+Q: Can multiple officers use the platform?
 
-Yes. The documented configuration supports multiple user accounts and role assignments.
+The documented configuration supports multiple user accounts and role assignments.
 
-**Q: Where is the data stored?**
+Q: Where is the data stored?
 
-The documented implementation uses SQLite for database storage and local directories for images. Refer to the actual configuration for exact locations.
+The documented implementation uses SQLite for database storage and local directories for images.
 
-**Q: Can the public portal run separately?**
+Developer Information
 
-The documented application provides separate Streamlit entry points for the officer/admin portal and public submission portal.
+Developed by: Maheswar Sahoo
 
----
+- Institution: Bhadrak Institute of Engineering and Technology (BIET), Odisha
+- Department: Computer Science & Engineering
+- GitHub: "M-sahoo2007" (https://github.com/M-sahoo2007)
 
-## Developer Information
+Acknowledgements
 
-**Developed by: Maheswar Sahoo**
+Special thanks to the open-source communities and developers behind Python, Streamlit, MediaPipe, OpenCV, scikit-learn, SQLModel, and SQLite.
 
-- **Institution:** Bhadrak Institute of Engineering and Technology (BIET), Odisha
-- **Branch:** Computer Science & Engineering (CSE)
-- **GitHub:** [M-sahoo2007](https://github.com/M-sahoo2007)
-- **GitHub Profile:** https://github.com/M-sahoo2007
+License
 
----
-
-## Acknowledgements
-
-Thanks to the open-source communities and developers behind Python, Streamlit, MediaPipe, OpenCV, scikit-learn, SQLModel, and SQLite.
+Add an appropriate LICENSE file to this repository before specifying a license.
 
 ---
 
-## License
+Project Title: AI-Assisted Human Identification Platform
 
-Add the appropriate LICENSE file to this repository before specifying a license.
-
-#
+Developed by Maheswar Sahoo
+Bhadrak Institute of Engineering and Technology (BIET), Odisha
